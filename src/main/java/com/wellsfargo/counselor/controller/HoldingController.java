@@ -20,7 +20,6 @@ public class HoldingController {
     @Autowired
     private PortfolioRepository portfolioRepository;
 
-    // ✅ Create a new Holding linked to a Portfolio
     @PostMapping
     public Holding createHolding(@RequestBody Holding holding) {
         Long portfolioId = holding.getPortfolio().getId();  // changed here
@@ -30,7 +29,7 @@ public class HoldingController {
         return holdingRepository.save(holding);
     }
 
-    // ✅ Get all Holdings
+    
     @GetMapping
     public List<Holding> getAllHoldings() {
         return holdingRepository.findAll();
